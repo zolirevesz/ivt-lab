@@ -39,3 +39,4 @@ The project represents an alpha version of a spaceship.
 
 This is a change in the readme file.
 Change in branch-A
+Other change in branch-B. Obviously better.
