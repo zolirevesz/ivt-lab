@@ -38,3 +38,4 @@ The project represents an alpha version of a spaceship.
 - There are currently two tests (`GT4500Test`), but be aware that they are not proper unit tests, as they do not isolate the dependencies of the tested class.
 
 This is a change in the readme file.
+Other change in branch-B. Obviously better.
