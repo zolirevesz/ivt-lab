@@ -89,37 +89,35 @@ public class GT4500Test {
   public void fireTorpedo_single_bothAreEmpty(){
     // Arrange
     when(secondary.isEmpty()).thenReturn(true);
-    when(primary.fire(1)).thenReturn(true);
-    when(secondary.fire(1)).thenReturn(true);
+    when(primary.isEmpty()).thenReturn(true);
+    //when(primary.fire(1)).thenReturn(true);
+    //when(secondary.fire(1)).thenReturn(true);
 
     // Act
     boolean result = ship.fireTorpedo(FiringMode.SINGLE);
-    when(primary.isEmpty()).thenReturn(true);
-    boolean result2 = ship.fireTorpedo(FiringMode.SINGLE);
 
     // Assert
-    assertEquals(true, result);
-    assertEquals(false, result2);
+    assertEquals(false, result);
 
-    verify(primary, times(1)).fire(1);
+    verify(primary, times(0)).fire(1);
     verify(secondary, times(0)).fire(1);
   }
 
   @Test
-  public void fireTorpedo_single_primaryEmpty(){
+  public void fireTorpedo_all_primaryEmpty(){
     // Arrange
     when(primary.isEmpty()).thenReturn(true);
-    when(primary.fire(1)).thenReturn(true);
+    when(primary.fire(1)).thenReturn(false);
     when(secondary.fire(1)).thenReturn(true);
 
     // Act
-    boolean result = ship.fireTorpedo(FiringMode.SINGLE);
+    boolean result = ship.fireTorpedo(FiringMode.ALL);
 
     // Assert
-    assertEquals(true, result);
+    assertEquals(false, result);
 
     verify(primary, times(0)).fire(1);
-    verify(secondary, times(1)).fire(1);
+    verify(secondary, times(0)).fire(1);
   }
 
   @Test
