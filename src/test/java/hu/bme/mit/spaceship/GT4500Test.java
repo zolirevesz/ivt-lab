@@ -22,7 +22,7 @@ public class GT4500Test {
   }
 
   @Test
-  public void fireTorpedo_Single_Success(){
+  public void fireTorpedo_single_Success(){
     // Arrange
       when(primary.fire(1)).thenReturn(true);
 
@@ -36,7 +36,7 @@ public class GT4500Test {
   }
 
   @Test
-  public void fireTorpedo_All_Success(){
+  public void fireTorpedo_all_Success(){
     // Arrange
     when(primary.fire(1)).thenReturn(true);
     when(secondary.fire(1)).thenReturn(true);
@@ -52,7 +52,7 @@ public class GT4500Test {
   }
 
   @Test
-  public void fireTorpedo_primaryEmpty(){
+  public void fireTorpedo_single_primaryEmpty(){
     // Arrange
     when(primary.isEmpty()).thenReturn(true);
     when(primary.fire(1)).thenReturn(true);
@@ -68,7 +68,7 @@ public class GT4500Test {
   }
 
   @Test
-  public void fireTorpedo_secondaryEmpty(){
+  public void fireTorpedo_single_secondaryEmpty(){
     // Arrange
     when(secondary.isEmpty()).thenReturn(true);
     when(primary.fire(1)).thenReturn(true);
@@ -86,7 +86,7 @@ public class GT4500Test {
   }
 
   @Test
-  public void fireTorpedo_bothAreEmpty(){
+  public void fireTorpedo_single_bothAreEmpty(){
     // Arrange
     when(secondary.isEmpty()).thenReturn(true);
     when(primary.fire(1)).thenReturn(true);
@@ -106,7 +106,7 @@ public class GT4500Test {
   }
 
   @Test
-  public void fireTorpedo_all_primaryEmpty(){
+  public void fireTorpedo_single_primaryEmpty(){
     // Arrange
     when(primary.isEmpty()).thenReturn(true);
     when(primary.fire(1)).thenReturn(true);
@@ -123,7 +123,7 @@ public class GT4500Test {
   }
 
   @Test
-  public void fireTorpedo_primary(){
+  public void fireTorpedo_single_firstTime_primary(){
     // Arrange
     when(primary.fire(1)).thenReturn(true);
 
@@ -137,21 +137,7 @@ public class GT4500Test {
   }
 
   @Test
-  public void fireTorpedo_firstTime_primary(){
-    // Arrange
-    when(primary.fire(1)).thenReturn(true);
-
-    // Act
-    boolean result = ship.fireTorpedo(FiringMode.SINGLE);
-
-    // Assert
-    assertEquals(true, result);
-
-    verify(primary, times(1)).fire(1);
-  }
-
-  @Test
-  public void fireTorpedo_secondTime_secondary(){
+  public void fireTorpedo_single_secondTime_secondary(){
     // Arrange
     when(primary.fire(1)).thenReturn(true);
     when(secondary.fire(1)).thenReturn(true);
@@ -165,7 +151,7 @@ public class GT4500Test {
   }
 
   @Test
-  public void fireTorpedo_thirdTime_primary(){
+  public void fireTorpedo_single_thirdTime_primary(){
     // Arrange
     when(primary.fire(1)).thenReturn(true);
     when(secondary.fire(1)).thenReturn(true);
